@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# Get motherboard information using lspci
+echo "<h2>Motherboard Information</h2>"
+sudo lspci | grep -i 'Host bridge\|PCI bridge\|ISA bridge\|SMBus\|USB controller\|Serial controller\|SATA controller\|IDE interface\|Audio device\|VGA compatible controller\|Ethernet controller' | xargs printf "<p>%s</p>\n"
+
+# Get network information using ifconfig
+echo "<h2>Network Information</h2>"
+sudo ifconfig | xargs printf "<p>%s</p>\n"
+
+# Get storage device information using lsblk
+echo "<h2>Storage Device Information</h2>"
+sudo lsblk -o NAME,SIZE,TYPE,MOUNTPOINT | xargs printf "<p>%s</p>\n"
+
+# Get display information using xrandr
+echo "<h2>Display Information</h2>"
+sudo xrandr | xargs printf "<p>%s</p>\n"
