@@ -1,5 +1,5 @@
 #!/bin/bash
-
+#open source
 # Get motherboard information using lspci
 echo "===== Motherboard Information ====="
 sudo lspci 
